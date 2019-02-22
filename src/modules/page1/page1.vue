@@ -4,6 +4,7 @@
     <Data-bind />
     <Unequal />
     <BaseOpt />
+    <a href="./page2.html" class="next">下一页</a>
   </div>
 </template>
 
@@ -32,5 +33,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.next {
+  position: fixed;
+  bottom: 60px;
+  right: 40px;;
 }
 </style>
