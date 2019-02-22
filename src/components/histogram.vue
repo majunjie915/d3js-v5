@@ -31,7 +31,6 @@ export default {
       let dataset = [10, 20, 30, 23, 13, 40, 27, 35, 20];
 
       // 绘制坐标轴
-      let rectHeight = 28.8;
       let xScale = d3.scaleBand()
                     .domain(d3.range(dataset.length))
                     .rangeRound([0, width - marge.left - marge.right]);
