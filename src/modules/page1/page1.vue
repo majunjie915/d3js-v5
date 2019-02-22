@@ -3,6 +3,7 @@
     <Start msg="Welcome to Your Vue.js App"/>
     <Data-bind />
     <Unequal />
+    <BaseOpt />
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import Start from '../../components/start.vue'
 import DataBind from '../../components/dataBind.vue'
 import Unequal from '../../components/unequal.vue'
+import BaseOpt from '../../components/baseOpt.vue'
 
 export default {
   name: 'app',
   components: {
     Start,
     DataBind,
-    Unequal
+    Unequal,
+    BaseOpt
   }
 }
 </script>
