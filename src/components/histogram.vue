@@ -111,6 +111,27 @@ export default {
         .attr('y', function(d) {
           return yScale(d);
         })
+        .attr('fill', 'red');
+
+      // 绑定事件
+      setTimeout(function() {
+        gs.on('mouseover', function() {
+              let rect = d3.select(this)
+                        .select('rect')
+                        .transition()
+                        .duration(1500)
+                        .attr('fill', 'yellow');
+            })
+            .on('mouseout', function() {
+              let rect = d3.select(this)
+                        .select('rect')
+                        .transition()
+                        .delay(1500)
+                        .duration(1500)
+                        .attr('fill', 'blue');
+            })
+
+      }, 2000)
     }
   }
 }
