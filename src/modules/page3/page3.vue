@@ -10,7 +10,7 @@
 import Histogram from '../../components/histogram.vue';
 
 export default {
-  name: 'app',
+  name: 'page3',
   components: {
     Histogram,
   }
