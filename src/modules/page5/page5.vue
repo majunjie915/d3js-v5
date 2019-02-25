@@ -2,7 +2,7 @@
   <div class="force-directed-graph">
     <svg class="svg" width="900" height="800"></svg>
     <a href="./page3.html" class="pre">&lt;上一页</a>
-    <a href="./page5.html" class="next">下一页&gt;</a>
+    <a href="./page6.html" class="next">下一页&gt;</a>
   </div>
 </template>
 
@@ -57,17 +57,17 @@ export default {
       // 设置比例尺
       let colorScale = d3.scaleOrdinal()
             .domain(d3.range(nodes.length))
-            .range(d3.schemeCategory10);
+            .range(d3.schemeCategory10); // schemeCategory10 颜色分类 10种颜色
 
       // 新建一个力导向图
       let forceSimulation = d3.forceSimulation()
-            .force('link', d3.forceLink())
+            .force('link', d3.forceLink()) // 为仿真添加指定 name 的 force(力学模型) 并返回仿真
             .force('charge', d3.forceManyBody())
             .force('center', d3.forceCenter());
 
       // 生成节点数据
       forceSimulation.nodes(nodes)
-        .on('tick', function() {
+        .on('tick', function() { // 监听 tick 事件来不断更新图形系统
           links.attr('x1', function(d) { return d.source.x; })
               .attr('y1', function(d) { return d.source.y })
               .attr('x2', function(d) { return d.target.x })
@@ -86,8 +86,8 @@ export default {
         });
 
       // 生成边数据
-      forceSimulation.force('link')
-        .links(edges)
+      forceSimulation.force('link') // 称为 弹簧模型
+        .links(edges) // 根据 link distance 将有关联的两个节点拉近或者推远
         .distance(function(d) {
           return d.value * 160;
         })
@@ -127,10 +127,8 @@ export default {
             .data(nodes)
             .enter()
             .append('g')
-            .attr('transform', function(d, i) {
-              let cirX = d.x;
-              let cirY = d.y;
-              return `translate(${cirX}, ${cirY})`;
+            .attr('transform', function(d) {
+              return `translate(${d.x}, ${d.y})`;
             })
             .call(d3.drag()
                     .on('start', function(d) {
